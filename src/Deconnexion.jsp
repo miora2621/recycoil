@@ -1,0 +1,4 @@
+<%
+    session.start();
+    session.destroy();
+%>

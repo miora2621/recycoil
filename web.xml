@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+      version="3.1">
+
+
+<servlet>
+        <servlet-name>NbAbsencePDController</servlet-name>
+        <servlet-class>absence.NbAbsencePDController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NbAbsencePDController</servlet-name>
+        <url-pattern>/statAbs</url-pattern>
+    </servlet-mapping>
+
+
+
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Product_servlet</servlet-name>
+        <servlet-class>servlet.Product_servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SumQuantiteProductionServlet</servlet-name>
+        <servlet-class>servlet.SumQuantiteProductionServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Produit</servlet-name>
+        <servlet-class>model.Produit</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Product_servlet</servlet-name>
+        <url-pattern>/Product_servlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Product_formservlet</servlet-name>
+        <servlet-class>servlet.Product_formservlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Product_formservlet</servlet-name>
+        <url-pattern>/Product_formservlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SumQuantiteProductionServlet</servlet-name>
+        <url-pattern>/SumQuantiteProductionServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Produit</servlet-name>
+        <url-pattern>/Produit</url-pattern>
+    </servlet-mapping>
+    
+<servlet>
+     <servlet-name>AbsenceNJController</servlet-name>
+     <servlet-class>absence.AbsenceNJController</servlet-class>
+ </servlet>
+ 
+ <servlet-mapping>
+     <servlet-name>AbsenceNJController</servlet-name>
+     <url-pattern>/absenceNJ</url-pattern>
+ </servlet-mapping>
+
+ <servlet>
+    <servlet-name>formulaire_conge</servlet-name>
+    <servlet-class>servlet.Conge_servlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>formulaire_conge</servlet-name>
+    <url-pattern>/insertion_conge</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>recherche_conge</servlet-name>
+    <servlet-class>servlet.Recherche_conge_servlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>recherche_conge</servlet-name>
+    <url-pattern>/find_liste_conge</url-pattern>
+</servlet-mapping>
+<servlet>
+  <servlet-name>MatierePremiereController</servlet-name>
+  <servlet-class>servlet.MatierePremiereController</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>MatierePremiereController</servlet-name>
+  <url-pattern>/matierePremiereController</url-pattern>
+</servlet-mapping>
+<servlet>
+  <servlet-name>StockMatierePremiereController</servlet-name>
+  <servlet-class>servlet.StockMatierePremiereController</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>StockMatierePremiereController</servlet-name>
+  <url-pattern>/stockMatierePremiereController</url-pattern>
+</servlet-mapping>
+<servlet>
+  <servlet-name>MatierePremiereCRUD</servlet-name>
+  <servlet-class>servlet.MatierePremiereCRUD</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>MatierePremiereCRUD</servlet-name>
+  <url-pattern>/matierePremiereCRUD</url-pattern>
+</servlet-mapping>
+<servlet>
+  <servlet-name>StockMatierePremiereCRUD</servlet-name>
+  <servlet-class>servlet.StockMatierePremiereCRUD</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>StockMatierePremiereCRUD</servlet-name>
+  <url-pattern>/stockMatierePremiereCRUD</url-pattern>
+</servlet-mapping>
+<servlet>
+  <servlet-name>Insertion_servlet</servlet-name>
+  <servlet-class>servlet.Insertion_servlet</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>Insertion_servlet</servlet-name>
+  <url-pattern>/Insertion_servlet</url-pattern>
+</servlet-mapping>
+<servlet>
+  <servlet-name>FindDepenseServlet</servlet-name>
+  <servlet-class>servlet.FindDepenseServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>FindDepenseServlet</servlet-name>
+  <url-pattern>/FindDepenseServlet</url-pattern>
+</servlet-mapping>
+<servlet>
+  <servlet-name>edit_delete_servlet</servlet-name>
+  <servlet-class>servlet.edit_delete_servlet</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>edit_delete_servlet</servlet-name>
+  <url-pattern>/edit_delete_servlet</url-pattern>
+</servlet-mapping>
+<servlet>
+  <servlet-name>DepenseServlet</servlet-name>
+  <servlet-class>servlet.DepenseServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>DepenseServlet</servlet-name>
+  <url-pattern>/DepenseServlet</url-pattern>
+</servlet-mapping>
+<servlet>
+  <servlet-name>BeneficeServlet</servlet-name>
+  <servlet-class>servlet.BeneficeServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>BeneficeServlet</servlet-name>
+  <url-pattern>/BeneficeServlet</url-pattern>
+</servlet-mapping>
+
+ </web-app>
