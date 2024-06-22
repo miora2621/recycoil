@@ -15,7 +15,13 @@
         <url-pattern>/statAbs</url-pattern>
     </servlet-mapping>
 
-
+  <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>servlet.Deconnexion_servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/Logout_servlet</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
