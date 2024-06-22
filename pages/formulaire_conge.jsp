@@ -1,3 +1,4 @@
+<%@page import="models.Conge,java.util.Vector,models.Personnel" %>
 <%
     String text = "";
     String color = "";
@@ -5,7 +6,7 @@
         text=(String) request.getAttribute("resultat");
         color=(String) request.getAttribute("color");
     } 
-
+    Vector<Personnel> liste_personnel=Personnel.get_all();
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,8 +30,10 @@
             <div>
                 <p>Personnel</p>
                 <select name="personnel">
-                    <option value="1">Rakoto</option>
-                    <option value="2">Rabe</option>
+                    <option value="">Choix du personnel</option>
+                <% for(Personnel personnel : liste_personnel){ %>
+                <option value="<%= personnel.get_id_personnel() %>"><%= personnel.get_nom_personnel() %></option>
+                <% } %>
                 </select>
             </div>
             <div>

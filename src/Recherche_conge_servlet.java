@@ -18,6 +18,7 @@ import jakarta.servlet.RequestDispatcher;
 
 
 import models.Conge;
+import models.Personnel;
 public class Recherche_conge_servlet extends HttpServlet{
     protected void doGet(HttpServletRequest req,HttpServletResponse res) throws ServletException,IOException{
         try {
@@ -27,6 +28,8 @@ public class Recherche_conge_servlet extends HttpServlet{
             Vector<Conge> list_conge=Conge.get_by_date(date_debut_conge,date_fin_conge,id_personnel);
             // Vector<Conge> list_conge=Conge.get_by_date(date_debut_conge,date_fin_conge,id);
             req.setAttribute("liste_conge",list_conge);
+            Vector<Personnel> liste=Personnel.get_all();
+            req.setAttribute("liste_personnel",liste);
             RequestDispatcher dispat = req.getRequestDispatcher("table_conge.jsp"); //modifier en fonction du nom de la page
             dispat.forward(req,res);
         } catch (Exception e) {
