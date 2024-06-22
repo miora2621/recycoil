@@ -2,6 +2,7 @@
 
 <%
 Vector<Conge> liste_conge = (Vector<Conge>) request.getAttribute("liste_conge");
+    Vector<Personnel> liste_personnel=(Vector<Personnel>) request.getAttribute("liste_personnel");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,8 +52,9 @@ Vector<Conge> liste_conge = (Vector<Conge>) request.getAttribute("liste_conge");
                             <label for="date_min">Personnel</label>
                             <select name="id" class="search-item">
                                 <option value="">Choix du personnel</option>
-                                <option value="1">Rabe</option>
-                                <option value="2">Rakoto</option>
+                                <% for(Personnel personnel : liste_personnel){ %>
+                                    <option value="<%= personnel.get_id_personnel() %>"><%= personnel.get_nom_personnel() %></option>
+                                    <% } %>
                             </select>
                         </span>
                     </div>
