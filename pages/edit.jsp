@@ -6,6 +6,17 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="need.Depense" %>
+<%@page import="front_office.Personne"%>
+
+<%
+if(session.getAttribute("user")==null){
+    response.sendRedirect("login.jsp");
+}
+Personne personne=(Personne)session.getAttribute("user");
+if(personne.get_etat().equals("tsotra")){
+        response.sendRedirect("crash.jsp");
+    }
+%>
 <!DOCTYPE html>
 <html>
 <head>

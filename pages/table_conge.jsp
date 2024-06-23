@@ -1,5 +1,12 @@
 <%@page import="models.Conge,java.util.Vector,java.time.LocalDate" %>
+<%@page import="front_office.Personne"%>
 
+<%
+if(session.getAttribute("user")==null){
+    response.sendRedirect("login.jsp");
+}
+Personne personne=(Personne)session.getAttribute("user");
+%>
 <%
 Vector<Conge> liste_conge = (Vector<Conge>) request.getAttribute("liste_conge");
     Vector<Personnel> liste_personnel=(Vector<Personnel>) request.getAttribute("liste_personnel");
@@ -21,25 +28,28 @@ Vector<Conge> liste_conge = (Vector<Conge>) request.getAttribute("liste_conge");
     <div class="section-right">
         <header>
             <nav class="menu">
-                <p>
-                    <a href="formulaire_conge.jsp" class="bt"><i class="far fa-plus"></i> Ajouter</a>
-                </p>
-                <p>
-                    <a href=""><i class="far fa-bell"></i></a>
-                </p>
-                <p>
-                    <a href=""><i class="fa fa-power-off"></i></a>
-                </p>
-            </nav>
-        </header>
-        <section>
-            <div class="title">
-                <i class="fa fa-clock"></i>
-                <h2>Liste des Cong&eacute;s</h2>         
-            </div>
-            <form action="find_liste_conge">
-                <div class="search-form">
-                    <div class="search-div">
+                    <%  if(!personne.get_etat().equals("tsotra")){  %>
+                    <p>
+                        <a href="formulaire_conge.jsp" class="bt"><i class="far fa-plus"></i> Ajouter</a>
+                    </p>
+                    <p>
+                        <a href=""><i class="far fa-bell"></i></a>
+                    </p>
+                    <% } %>
+                    <p>
+                        <a href=""><i class="fa fa-power-off"></i></a>
+                    </p>
+                </nav>
+            </header>
+            <section>
+                <div class="title">
+                    <i class="fa fa-clock"></i>
+                    <h2>Liste des Cong&eacute;s</h2>         
+                </div>
+                <%  if(!personne.get_etat().equals("tsotra")){  %>
+                    <form action="find_liste_conge">
+                        <div class="search-form">
+                            <div class="search-div">
                         <span>
                             <label for="date_max">Date Max</label>
                             <input type="date" name="date_debut" class="search-item">
@@ -63,6 +73,7 @@ Vector<Conge> liste_conge = (Vector<Conge>) request.getAttribute("liste_conge");
                     </div>
                 </div>
             </form>
+            <% } %>
             <div class="tableau">
                 <table>
                     <tr>

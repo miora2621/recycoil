@@ -1,4 +1,12 @@
 <%@ page import="absence.*,java.util.Vector"%>
+<%@page import="front_office.Personne"%>
+
+<%
+if(session.getAttribute("user")==null){
+    response.sendRedirect("login.jsp");
+}
+Personne personne=(Personne)session.getAttribute("user");
+%>
 <%
     Vector<AbsenceNonJustifie> lsAbsence=new Vector<AbsenceNonJustifie>();
     if(request.getAttribute("lsAbsence")!=null){
@@ -29,8 +37,9 @@
                 <i class="fa fa-clock"></i>
                 <h2>Absences non-justifiées</h2>         
             </div>
-            <form action="absenceNJ" method="GET">
-                <div class="search-form">
+            <% if(!personne.get_etat().equals("tsotra")){ %>
+                <form action="absenceNJ" method="GET">
+                    <div class="search-form">
                     <div class="search-div">
                         <span>
                             <label for="earlier_date">Date Min</label>
@@ -54,6 +63,7 @@
                     </div>
                 </div>
             </form>
+            <% } %>
             <div class="tableau">
                 <table>
                     <tr>
@@ -62,16 +72,16 @@
                         <th>poste</th>
                         <th>date</th>
                     </tr>
-                <% for(int i=0;i<lsAbsence.size();i++){%>
-                    <tr>
-                        <td class="table-item"><% out.print(lsAbsence.elementAt(i).getIdPersonnel()); %></td>
-                        <td class="table-item"><% out.print(lsAbsence.elementAt(i).getNom()); %></td>
-                        <td class="table-item"><% out.print(lsAbsence.elementAt(i).getPoste()); %></td>
-                        <td class="table-item"><% out.print(lsAbsence.elementAt(i).getDate()); %></td>
-                    </tr>
-                <%}%>   
-
-                </table>
+                    <% for(int i=0;i<lsAbsence.size();i++){%>
+                        <tr>
+                            <td class="table-item"><% out.print(lsAbsence.elementAt(i).getIdPersonnel()); %></td>
+                            <td class="table-item"><% out.print(lsAbsence.elementAt(i).getNom()); %></td>
+                            <td class="table-item"><% out.print(lsAbsence.elementAt(i).getPoste()); %></td>
+                            <td class="table-item"><% out.print(lsAbsence.elementAt(i).getDate()); %></td>
+                        </tr>
+                        <%}%>   
+                        
+                    </table>
             </div>
         </section>
     </div>    

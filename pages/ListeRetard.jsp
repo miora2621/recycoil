@@ -1,5 +1,13 @@
 <%@ page import="java.util.List" %>
 <%@ page import="Personnel.Retard" %>
+<%@page import="front_office.Personne"%>
+
+<%
+if(session.getAttribute("user")==null){
+    response.sendRedirect("login.jsp");
+}
+Personne personne=(Personne)session.getAttribute("user");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,25 +30,27 @@
                 <i class="fa fa-clock"></i>
                 <h2>Historique des retards</h2>
             </div>
-            <form action="listeRetard" method="post">
-                <div class="search-form">            
-                    <div class="search-div">
-                        <span>
-                            <label for="date_max">Retards entre</label>
-                            <input class="search-item" type="date" name="fin" <% if (request.getAttribute("fin")!=null){ %> value="<%= request.getAttribute("fin")%>" <%}%> required>
-                        </span> 
-                        <span>
-                            <label> et</label>
-                            <input class="search-item" type="date" name="debut" <% if (request.getAttribute("debut")!=null){ %> value="<%= request.getAttribute("debut") %>" <%}%> required>
-                        </span>
-                                  
-    
+            <% if(personne.get_etat().equals("tsotra")){ %>
+                <form action="listeRetard" method="post">
+                    <div class="search-form">            
+                        <div class="search-div">
+                            <span>
+                                <label for="date_max">Retards entre</label>
+                                <input class="search-item" type="date" name="fin" <% if (request.getAttribute("fin")!=null){ %> value="<%= request.getAttribute("fin")%>" <%}%> required>
+                            </span> 
+                            <span>
+                                <label> et</label>
+                                <input class="search-item" type="date" name="debut" <% if (request.getAttribute("debut")!=null){ %> value="<%= request.getAttribute("debut") %>" <%}%> required>
+                            </span>
+                            
+                            
+                        </div>
+                        <div class="search-button">
+                            <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
+                        </div>
                     </div>
-                    <div class="search-button">
-                        <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
-                    </div>
-                </div>
-            </form>
+                </form>
+                <% } %>
             <div class="tableau">
                 <% List<Retard> listeRetard = (List<Retard>) request.getAttribute("ListRetard");
                     if (request.getAttribute("ListRetard")!=null && listeRetard.size()!=0) { %>
