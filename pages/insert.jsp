@@ -3,7 +3,17 @@
     Created on : 24-May-2024, 21:18:09
     Author     : isaia
 --%>
+<%@page import="front_office.Personne"%>
 
+<%
+if(session.getAttribute("user")==null){
+    response.sendRedirect("login.jsp");
+}
+Personne personne=(Personne)session.getAttribute("user");
+if(personne.get_etat().equals("tsotra")){
+        response.sendRedirect("crash.jsp");
+    }
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

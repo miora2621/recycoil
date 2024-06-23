@@ -1,5 +1,14 @@
 <%@page import="front_office.Personne"%>
 <%
+if(session.getAttribute("user")==null){
+    response.sendRedirect("login.jsp");
+}
+Personne personne=(Personne)session.getAttribute("user");
+if(personne.get_etat().equals("tsotra")){
+        response.sendRedirect("crash.jsp");
+    }
+%>
+<%
     if(request.getAttribute("message")!=null){
 %>
 <script>

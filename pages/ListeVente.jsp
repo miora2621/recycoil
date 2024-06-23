@@ -2,6 +2,16 @@
 <%@ page import="Personnel.Retard" %>
 <%@ page import="vente.Vente" %>
 <%@ page import="java.util.Date" %>
+<%@page import="front_office.Personne"%>
+<%
+if(session.getAttribute("user")==null){
+    response.sendRedirect("login.jsp");
+}
+Personne personne=(Personne)session.getAttribute("user");
+if(personne.get_etat().equals("tsotra")){
+        response.sendRedirect("crash.jsp");
+    }
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>

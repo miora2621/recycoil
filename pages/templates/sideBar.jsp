@@ -1,3 +1,10 @@
+<%@page import="front_office.Personne"%>
+<% if(session.getAttribute("user")==null ){
+    response.sendRedirect("login.jsp");
+}else{ %>
+<%
+ if(((Personne)session.getAttribute("user")).get_etat().equals("admin")){
+%>
 <div class="section-left">
     <div class="logo">
         <h1>R<i class="fa fa-tint" style="transform: rotate(180deg);"></i>cyc'<i class="fa fa-cog"></i>il</h1>
@@ -27,11 +34,12 @@
                 <i class="fa fa-home"></i>
             </div>
         </a>
-         <a href="insertion_conge">
+        <a href="insertion_conge">
             <div>
                 <p>Conge</p>
                 <i class="fa fa-home"></i>
             </div>
+        </a>
        
         <a href="Insertion_servlet">
             <div>
@@ -83,3 +91,31 @@
     </a>
     </nav>
 </div>
+<% }else if(((Personne)session.getAttribute("user")).get_etat().equals("tsotra")) { %>
+    <div class="section-left">
+        <div class="logo">
+            <h1>R<i class="fa fa-tint" style="transform: rotate(180deg);"></i>cyc'<i class="fa fa-cog"></i>il</h1>
+        </div>
+        <nav class="menu">
+    
+             <a href="listeAbsenceNJ.jsp">
+                <div>
+                    <p>Absence</p>
+                    <i class="fa fa-home"></i>
+                </div>
+            </a>
+             <a href="insertion_conge">
+                <div>
+                    <p>Conge</p>
+                    <i class="fa fa-home"></i>
+                </div>
+           
+        <a href="ListeRetard.jsp">
+            <div>
+                <p>Historique Retards</p>
+                <i class="fa fa-clock"></i>
+            </div>
+        </a>
+        </nav>
+    </div>
+    <% } } %>

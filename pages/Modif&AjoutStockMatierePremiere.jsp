@@ -6,6 +6,17 @@
   Time: 12:32 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@page import="front_office.Personne"%>
+
+<%
+if(session.getAttribute("user")==null){
+    response.sendRedirect("login.jsp");
+}
+Personne personne=(Personne)session.getAttribute("user");
+if(personne.get_etat().equals("tsotra")){
+        response.sendRedirect("crash.jsp");
+    }
+%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     List<MatierePremiere> matierePremieres = MatierePremiere.get_all();
