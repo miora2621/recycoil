@@ -6,7 +6,6 @@
 if(session.getAttribute("user")==null){
     response.sendRedirect("login.jsp");
 }
-Personne personne=(Personne)session.getAttribute("user");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +29,6 @@ Personne personne=(Personne)session.getAttribute("user");
                 <i class="fa fa-clock"></i>
                 <h2>Historique des retards</h2>
             </div>
-            <% if(personne.get_etat().equals("tsotra")){ %>
                 <form action="listeRetard" method="post">
                     <div class="search-form">            
                         <div class="search-div">
@@ -50,7 +48,7 @@ Personne personne=(Personne)session.getAttribute("user");
                         </div>
                     </div>
                 </form>
-                <% } %>
+            
             <div class="tableau">
                 <% List<Retard> listeRetard = (List<Retard>) request.getAttribute("ListRetard");
                     if (request.getAttribute("ListRetard")!=null && listeRetard.size()!=0) { %>

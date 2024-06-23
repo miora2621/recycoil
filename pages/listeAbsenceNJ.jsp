@@ -5,7 +5,6 @@
 if(session.getAttribute("user")==null){
     response.sendRedirect("login.jsp");
 }
-Personne personne=(Personne)session.getAttribute("user");
 %>
 <%
     Vector<AbsenceNonJustifie> lsAbsence=new Vector<AbsenceNonJustifie>();
@@ -37,7 +36,7 @@ Personne personne=(Personne)session.getAttribute("user");
                 <i class="fa fa-clock"></i>
                 <h2>Absences non-justifiées</h2>         
             </div>
-            <% if(!personne.get_etat().equals("tsotra")){ %>
+           
                 <form action="absenceNJ" method="GET">
                     <div class="search-form">
                     <div class="search-div">
@@ -63,7 +62,7 @@ Personne personne=(Personne)session.getAttribute("user");
                     </div>
                 </div>
             </form>
-            <% } %>
+         
             <div class="tableau">
                 <table>
                     <tr>

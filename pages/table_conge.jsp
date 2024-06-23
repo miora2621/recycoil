@@ -46,7 +46,7 @@ Vector<Conge> liste_conge = (Vector<Conge>) request.getAttribute("liste_conge");
                     <i class="fa fa-clock"></i>
                     <h2>Liste des Cong&eacute;s</h2>         
                 </div>
-                <%  if(!personne.get_etat().equals("tsotra")){  %>
+             
                     <form action="find_liste_conge">
                         <div class="search-form">
                             <div class="search-div">
@@ -73,8 +73,7 @@ Vector<Conge> liste_conge = (Vector<Conge>) request.getAttribute("liste_conge");
                     </div>
                 </div>
             </form>
-            <% } %>
-            <div class="tableau">
+    <div class="tableau">
                 <table>
                     <tr>
                         <th>Id Conge</th>
